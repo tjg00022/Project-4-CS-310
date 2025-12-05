@@ -134,11 +134,11 @@ class UnitTests {
 		var expected = List.<String>of();
 		assertEquals(expected, Tommy.intersect(list1, list2));
 	}
-
-
 	//CLOJURE TESTS:
-
-
+	/*
+	*
+	*
+	*/
 	//Tests for Clojure Member 
 	@Test
 	void testMasonmemberClojureTrue() {
@@ -147,6 +147,7 @@ class UnitTests {
 		var item = "Beta";
 		assertTrue((Boolean) member.invoke(item, list));
 	}
+	
 	@Test
 	void testMasonmemberClojureFalse() {
 		var member = Clojure.var("Tristan", "member");
@@ -154,6 +155,7 @@ class UnitTests {
 		var item = "Zeta";
 		assertFalse((Boolean) member.invoke(item, list));	
 	}
+	
 	//Tests for Clojure append 
 	@Test 
 	void testMasonappendClojure() {
@@ -163,6 +165,7 @@ class UnitTests {
 		var expected = List.of("Alpha", "Beta", "Charlie", "Delta");
 		assertEquals(expected, append.invoke(list1, list2));
 	}
+	
 	@Test 
 	void testMasonappendClojureTwo() {
 		var append = Clojure.var("Tristan", "append");
@@ -171,6 +174,7 @@ class UnitTests {
 		var expected = List.of(1, 2, 3, 4);
 		assertEquals(expected, append.invoke(list1, list2));
 	}
+	
 	//Tests for Clojure Map
 	@Test
 	void testMasonmymapClojure_IntSquared() {
@@ -180,6 +184,7 @@ class UnitTests {
 		List<Integer> result = (List<Integer>) map.invoke(squareFunction, input);
 		assertEquals(Arrays.asList(1, 4, 9, 16), result);
 	}
+	
 	@Test 
 	void testMasonmymapClojure_StringLengths() {
 		var map = Clojure.var("Tristan", "mymap");
@@ -188,6 +193,7 @@ class UnitTests {
 		List<Integer> result = (List<Integer>) map.invoke(lengthFunction, input);
 		assertEquals(Arrays.asList(5, 4, 5), result);
 	}
+	
 	//Tests for Clojure Same 
 	@Test 
 	void testMasonsameClojureSizeFalse() {
@@ -196,6 +202,7 @@ class UnitTests {
 		var list2 = List.of("Alpha", "Beta", "Delta");
 		assertFalse((Boolean) same.invoke(list1, list2));
 	}
+	
 	@Test 
 	void testMasonsameClojureContentFalse() {
 		var same = Clojure.var("Tristan", "same");
@@ -203,6 +210,7 @@ class UnitTests {
 		var list2 = List.of("Alpha", "Beta", "Delta");
 		assertFalse((Boolean) same.invoke(list1, list2));
 	}
+	
 	@Test
 	void testMasonsameClojureTrue() {
 		var same = Clojure.var("Tristan", "same");
@@ -210,6 +218,7 @@ class UnitTests {
 		var list2 = List.of("Alpha", "Beta", "Charlie");
 		assertTrue((Boolean) same.invoke(list1, list2));
 	}
+	
 	//Tests for Clojure Intersect
 	@Test
 	void testMasonintersectClojure() {
@@ -219,6 +228,8 @@ class UnitTests {
 		var expected = List.of("Charlie", "Delta");
 		assertEquals(expected, intersect.invoke(list1, list2));
 	}
+	
+	@Test
 	void testMasonintersectClojureTwo() {
 		var intersect = Clojure.var("Tristan", "intersect");
 		var list1 = List.of("Golf", "Hotel", "India");
@@ -226,6 +237,8 @@ class UnitTests {
 		var expected = List.of("India");
 		assertEquals(expected, intersect.invoke(list1, list2));
 	}
+	
+	@Test
 	void testMasonintersectClojureEmpty() {
 		var intersect = Clojure.var("Tristan", "intersect");
 		var list1 = List.of("Lima", "Mike", "November");
