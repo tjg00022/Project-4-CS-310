@@ -1,4 +1,4 @@
-(ns List Functions)
+(ns Tristan)
 
 ;; member
 (defn member? [atm list]
