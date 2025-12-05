@@ -21,6 +21,7 @@ class UnitTests {
         var require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read("Alice"));
         // require.invoke(Clojure.read("Bob"));
+		require.invoke(Clojure.read("Tristan"));
 	}
 
 	@Test
@@ -35,9 +36,13 @@ class UnitTests {
 		var list = List.of("A", "B", "C", "D", "E");
 		assertEquals("C", Alice.third(list));
 	}
-
+	//JAVA TESTS:
+	/*
+	*
+	*
+	*
+	*/
 	//Tests for Member
-
 	@Test
 	void testNoahMemberJavaTrue() {
 		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
@@ -66,10 +71,10 @@ class UnitTests {
 		assertEquals(expected, Tommy.append(list1, list2));
 	}
 	@Test
-		void testNoahAppendJavaFalse() {
-		var list1 = List.of("Echo", "Foxtrot");
-		var list2 = List.of("Golf", "Hotel");
-		var expected = List.of("Echo", "Foxtrot", "Golf", "Hotel");
+		void testNoahAppendJavaTwo() {
+		var list1 = List.of(1, 2);
+		var list2 = List.of(3, 4);
+		var expected = List.of(1, 2, 3, 4);
 		assertEquals(expected, Tommy.append(list1, list2));
 	}
 
@@ -131,7 +136,73 @@ class UnitTests {
 	}
 
 
+	//CLOJURE TESTS:
 
+
+	//Tests for Clojure Member 
+	@Test
+	void testMasonMemberClojureTrue() {
+		var member = Clojure.var("Tristan", "member?");
+		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
+		var item = "Beta";
+		assertTrue((Boolean) member.invoke(item, list));
+	}
+	@Test
+	void testMasonMemberClojureFalse() {
+		var member = Clojure.var("Tristan", "member?");
+		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
+		var item = "Zeta";
+		assertFalse((Boolean) member.invoke(item, list));	
+	}
+	//Tests for Clojure append 
+	@Test 
+	void testMasonAppendClojure() {
+		var append = Clojure.var("Tristan", "append");
+		var list1 = List.of("Alpha", "Beta");
+		var list2 = List.of("Charlie", "Delta");
+		var expected = List.of("Alpha", "Beta", "Charlie", "Delta");
+		assertEquals(expected, append.invoke(list1, list2));
+	}
+	@Test 
+	void testMasonAppendClojureTwo() {
+		var append = Clojure.var("Tristan", "append");
+		var list1 = List.of(1, 2);
+		var list2 = List.of(3, 4);
+		var expected = List.of(1, 2, 3, 4);
+		assertEquals(expected, append.invoke(list1, list2));
+	}
+	//Tests for Clojure Map
+	@Test
+	void testMasonMapClojure_IntSquared() {
+		var map = Clojure.var("Tristan", "map");
+		List<Integer> input = Arrays.asList(1, 2, 3, 4);
+		Function<Integer, Integer> squareFunction = x -> x * x;
+		List<Integer> result = (List<Integer>) map.invoke(squareFunction, input);
+		assertEquals(Arrays.asList(1, 4, 9, 16), result);
+	}
+	@Test 
+	void testMasonMapClojure_StringLengths() {
+		var map = Clojure.var("Tristan", "map");
+		List<String> input = Arrays.asList("Alpha", "Beta", "Gamma");
+		Function<String, Integer> lengthFunction = s -> s.length();
+		List<Integer> result = (List<Integer>) map.invoke(lengthFunction, input);
+		assertEquals(Arrays.asList(5, 4, 5), result);
+	}
+	//Tests for Clojure Same 
+	@Test 
+	void testMasonSameClojureSizeFalse() {
+		var same = Clojure.var("Tristan", "same");
+		var list1 = List.of("Alpha", "Beta", "Charlie", "Gamma");
+		var list2 = List.of("Alpha", "Beta", "Delta");
+		assertFalse((Boolean) same.invoke(list1, list2));
+	}
+	@Test 
+	void testMasonSameClojureContentFalse() {
+		var same = Clojure.var("Tristan", "same");
+		var list1 = List.of("Alpha", "Beta", "Charlie");
+		var list2 = List.of("Alpha", "Beta", "Delta");
+		assertFalse((Boolean) same.invoke(list1, list2));
+	}
 
 
 
