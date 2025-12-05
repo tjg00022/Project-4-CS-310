@@ -1,7 +1,7 @@
 (ns Tristan)
 
 ;; member
-(defn member? [atm list]
+(defn member [atm list]
     (some #(= atm %) list))
 
 ;; append
@@ -13,7 +13,7 @@
     (map fun list))
 
 ;; same
-(defn same? [list1 list2]
+(defn same [list1 list2]
     (= list1 list2))
 
 ;; intersect
