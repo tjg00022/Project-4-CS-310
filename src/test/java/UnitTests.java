@@ -39,34 +39,34 @@ class UnitTests {
 	//Tests for Member
 
 	@Test
-	void testMemberJavaTrue() {
+	void testNoahMemberJavaTrue() {
 		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
 		var item = "Beta";
 		assertTrue(Tommy.member(item, list));
 	}
 	@Test
-	void testMemberJavaFalse() {
+	void testNoahMemberJavaFalse() {
 		
 		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
 		var item = "Zeta";
 		assertFalse(Tommy.member(item, list));
 	}
     @Test
-    void testMemberEmptyList() {
+    void testNoahMemberEmptyList() {
         var empty = List.<String>of();
         assertFalse(Tommy.member("Empty List", empty));
     }
 
 	//Tests for Append 
 	@Test
-	void testAppendJava() {
+	void testNoahAppendJava() {
 		var list1 = List.of("Alpha", "Beta");
 		var list2 = List.of("Charlie", "Delta");
 		var expected = List.of("Alpha", "Beta", "Charlie", "Delta");
 		assertEquals(expected, Tommy.append(list1, list2));
 	}
 	@Test
-		void testAppendJavaFalse() {
+		void testNoahAppendJavaFalse() {
 		var list1 = List.of("Echo", "Foxtrot");
 		var list2 = List.of("Golf", "Hotel");
 		var expected = List.of("Echo", "Foxtrot", "Golf", "Hotel");
@@ -75,14 +75,14 @@ class UnitTests {
 
 	//Tests for Map 
 	@Test
-	void testMap_IntSquared() {
+	void testNoahMap_IntSquared() {
 		List<Integer> input = Arrays.asList(1, 2, 3, 4);
 		Function<Integer, Integer> squareFunction = x -> x * x;
 		List<Integer> result = Tommy.map(squareFunction, input);
 		assertEquals(Arrays.asList(1, 4, 9, 16), result);
 	}
 	@Test 
-	void testMap_StringLengths() {
+	void testNoahMap_StringLengths() {
 		List<String> input = Arrays.asList("Alpha", "Beta", "Gamma");
 		Function<String, Integer> lengthFunction = s -> s.length();
 		List<Integer> result = Tommy.map(lengthFunction, input);
@@ -91,43 +91,43 @@ class UnitTests {
 
 	//Tests for Same 
 	@Test 
-	void testSameSizeFalse() {
+	void testNoahSameSizeFalse() {
 		var list1 = List.of("Alpha", "Beta", "Charlie", "Gamma");
 		var list2 = List.of("Alpha", "Beta", "Delta");
-		assertFalse(ListFunctions.same(list1, list2));
+		assertFalse(Tommy.same(list1, list2));
 	}
 	@Test 
-	void testSameContentFalse() {
+	void testNoahSameContentFalse() {
 		var list1 = List.of("Alpha", "Beta", "Charlie");
 		var list2 = List.of("Alpha", "Beta", "Delta");
-		assertFalse(ListFunctions.same(list1, list2));
+		assertFalse(Tommy.same(list1, list2));
 	}
 	@Test
-	void testSameTrue() {
+	void testNoahSameTrue() {
 		var list1 = List.of("Alpha", "Beta", "Charlie");
 		var list2 = List.of("Alpha", "Beta", "Charlie");
-		assertTrue(ListFunctions.same(list1, list2));
+		assertTrue(Tommy.same(list1, list2));
 	}
 
 	//Tests for Intersect 
 	@Test
-	void testIntersectJava() {
+	void testNoahIntersectJava() {
 		var list1 = List.of("Alpha", "Beta", "Charlie", "Delta");
 		var list2 = List.of("Charlie", "Delta", "Echo", "Foxtrot");
 		var expected = List.of("Charlie", "Delta");
-		assertEquals(expected, ListFunctions.intersect(list1, list2));
+		assertEquals(expected, Tommy.intersect(list1, list2));
 	}
-	void testIntersectJavaTwo() {
+	void testNoahIntersectJavaTwo() {
 		var list1 = List.of("Golf", "Hotel", "India");
 		var list2 = List.of("India", "Juliet", "Kilo");
 		var expected = List.of("India");
-		assertEquals(expected, ListFunctions.intersect(list1, list2));
+		assertEquals(expected, Tommy.intersect(list1, list2));
 	}
-	void testIntersectJavaEmpty() {
+	void testNoahIntersectJavaEmpty() {
 		var list1 = List.of("Lima", "Mike", "November");
 		var list2 = List.<String>of();
 		var expected = List.<String>of();
-		assertEquals(expected, ListFunctions.intersect(list1, list2));
+		assertEquals(expected, Tommy.intersect(list1, list2));
 	}
 
 
