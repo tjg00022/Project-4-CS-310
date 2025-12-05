@@ -18,4 +18,4 @@
 
 ;; intersect
 (defn intersect [list1 list2]
-    (filter #(member %list2) list1))
+    (filter #(member % list2) list1))
