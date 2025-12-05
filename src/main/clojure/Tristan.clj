@@ -1,7 +1,7 @@
 (ns Tristan)
 
 ;; member
-(defn member? [atm list]
+(defn member [atm list]
     (some #(= atm %) list))
 
 ;; append
@@ -9,13 +9,13 @@
     (concat list1 list2))
 
 ;; map
-(defn my-map [fun list]
+(defn mymap [fun list]
     (map fun list))
 
 ;; same
-(defn same? [list1 list2]
+(defn same [list1 list2]
     (= list1 list2))
 
 ;; intersect
 (defn intersect [list1 list2]
-    (filter #(member? %list2) list1))
+    (filter #(member %list2) list1))
