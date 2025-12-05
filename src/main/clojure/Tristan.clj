@@ -9,7 +9,7 @@
     (concat list1 list2))
 
 ;; map
-(defn my-map [fun list]
+(defn mymap [fun list]
     (map fun list))
 
 ;; same
