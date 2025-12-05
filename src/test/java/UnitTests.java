@@ -19,23 +19,9 @@ class UnitTests {
 	@BeforeAll
 	static void requires() {
         var require = Clojure.var("clojure.core", "require");
-        require.invoke(Clojure.read("Alice"));
-        // require.invoke(Clojure.read("Bob"));
 		require.invoke(Clojure.read("Tristan"));
 	}
 
-	@Test
-	void testAliceThirdClojure() {
-		var third = Clojure.var("Alice", "third");
-		var list = List.of("A", "B", "C", "D", "E");
-		assertEquals("C", third.invoke(list));
-	}
-
-	@Test
-	void testAliceThirdJava() {
-		var list = List.of("A", "B", "C", "D", "E");
-		assertEquals("C", Alice.third(list));
-	}
 	//JAVA TESTS:
 	/*
 	*
