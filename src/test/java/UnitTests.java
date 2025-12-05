@@ -29,6 +29,11 @@ class UnitTests {
 	}
 	@Test 
 	void testMemberJava() {
-		var list = Lis.of
+		
+		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
+		var item = "Beta";
+		assertTrue(Utils.member(item, list());
+		
+		
 	}
 }
