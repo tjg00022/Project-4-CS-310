@@ -142,14 +142,14 @@ class UnitTests {
 	//Tests for Clojure Member 
 	@Test
 	void testMasonmemberClojureTrue() {
-		var member = Clojure.var("Tristan", "member?");
+		var member = Clojure.var("Tristan", "member");
 		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
 		var item = "Beta";
 		assertTrue((Boolean) member.invoke(item, list));
 	}
 	@Test
 	void testMasonmemberClojureFalse() {
-		var member = Clojure.var("Tristan", "member?");
+		var member = Clojure.var("Tristan", "member");
 		var list = List.of("Alpha", "Beta", "Charlie", "Delta");
 		var item = "Zeta";
 		assertFalse((Boolean) member.invoke(item, list));	
@@ -174,7 +174,7 @@ class UnitTests {
 	//Tests for Clojure Map
 	@Test
 	void testMasonmymapClojure_IntSquared() {
-		var map = Clojure.var("Tristan", "map");
+		var map = Clojure.var("Tristan", "mymap");
 		List<Integer> input = Arrays.asList(1, 2, 3, 4);
 		Function<Integer, Integer> squareFunction = x -> x * x;
 		List<Integer> result = (List<Integer>) map.invoke(squareFunction, input);
@@ -182,7 +182,7 @@ class UnitTests {
 	}
 	@Test 
 	void testMasonmymapClojure_StringLengths() {
-		var map = Clojure.var("Tristan", "map");
+		var map = Clojure.var("Tristan", "mymap");
 		List<String> input = Arrays.asList("Alpha", "Beta", "Gamma");
 		Function<String, Integer> lengthFunction = s -> s.length();
 		List<Integer> result = (List<Integer>) map.invoke(lengthFunction, input);
