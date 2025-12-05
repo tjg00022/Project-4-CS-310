@@ -27,4 +27,8 @@ class UnitTests {
 		var list = List.of("A", "B", "C", "D", "E");
 		assertEquals("C", Alice.third(list));
 	}
+	@Test 
+	void testMemberJava() {
+		var list = Lis.of
+	}
 }
